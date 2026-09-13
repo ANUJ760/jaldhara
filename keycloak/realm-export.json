@@ -1,0 +1,38 @@
+{
+  "id": "jaldhara",
+  "realm": "jaldhara",
+  "enabled": true,
+  "users": [
+    {
+      "username": "analyst@demo.com",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [{"type": "password", "value": "password", "temporary": false}],
+      "realmRoles": ["analyst"]
+    },
+    {
+      "username": "officer@demo.com",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [{"type": "password", "value": "password", "temporary": false}],
+      "realmRoles": ["ddma_officer"]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {"name": "analyst", "description": "Analyst Role"},
+      {"name": "ddma_officer", "description": "DDMA Officer Role"}
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "jaldhara-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "jaldhara-secret",
+      "redirectUris": ["http://localhost:3000/*"],
+      "webOrigins": ["http://localhost:3000"],
+      "publicClient": false
+    }
+  ]
+}
