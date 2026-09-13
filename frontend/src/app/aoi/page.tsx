@@ -1,0 +1,1 @@
+export default function AOIPage() { return <div>AOI Management</div>; }

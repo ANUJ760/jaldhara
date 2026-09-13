@@ -1,0 +1,1 @@
+export default function AOINewPage() { return <div>New AOI Form</div>; }

@@ -1,0 +1,1 @@
+export default function AOIDetailPage() { return <div>AOI Detail</div>; }
