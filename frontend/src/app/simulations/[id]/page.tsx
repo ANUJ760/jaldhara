@@ -1,0 +1,1 @@
+export default function SimulationDetailPage() { return <div>Simulation Results</div>; }

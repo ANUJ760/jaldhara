@@ -1,0 +1,1 @@
+export default function ComparePage() { return <div>Compare Models</div>; }
