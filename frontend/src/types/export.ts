@@ -1,0 +1,1 @@
+export interface AOI { id: string; name: string; coordinates: number[][]; }
