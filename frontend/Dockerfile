@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Placeholder for package.json
 COPY package*.json ./
-RUN if [ -f package.json ]; then npm ci; else echo "No package.json found. Skipping npm ci."; fi
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
 COPY . /app
 RUN if [ -f package.json ]; then npm run build; fi

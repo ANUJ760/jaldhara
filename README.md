@@ -1,52 +1,49 @@
-# Jaldhara — Dam Break Inundation Modelling System
+# Jaldhara
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Jaldhara is a dam-break inundation modelling platform for disaster management planning. It combines geospatial data, simulation workflows, and web-based analysis to help teams assess inundation risk, model flood scenarios, and prepare response strategies.
 
-## Problem Statement
-**SIH26161 (NTRO, Disaster Management)**
-Dam Break Inundation Modelling System
-
-## Description
-Jaldhara is a comprehensive, production-grade system for modelling dam break inundation scenarios. It integrates high-resolution DEMs, hydrological data, and state-of-the-art simulation engines (DualSPHysics, Delft3D) to provide rapid, accurate, and actionable inundation maps for disaster management authorities (DDMAs).
+## What it does
+- Defines areas of interest for dam and breach analysis
+- Runs inundation simulations using open-source hydrodynamic and particle-based engines
+- Stores and processes spatial data with PostgreSQL/PostGIS and MinIO
+- Exposes API and dashboard workflows for monitoring, export, and impact review
 
 ## Architecture
 
 ```mermaid
 graph TD
-    A[Frontend: Next.js] -->|REST/GraphQL| B(Backend: FastAPI)
-    A -->|Auth| K[Keycloak]
-    B -->|Task Queue| C[Celery / Redis]
-    B -->|Metadata & Vector Data| D[(PostgreSQL + PostGIS)]
-    B -->|Raster & Engine Data| M[(MinIO Object Storage)]
-    C -->|Dispatch| E[DualSPHysics Engine]
-    C -->|Dispatch| F[Delft3D Engine]
-    E -->|Write| M
-    F -->|Write| M
+    A[Frontend: Next.js] --> B[FastAPI Backend]
+    B --> C[PostgreSQL + PostGIS]
+    B --> D[MinIO Object Storage]
+    B --> E[Celery + Redis]
+    E --> F[DualSPHysics]
+    E --> G[Delft3D]
 ```
 
-## Tech Stack
-- **Frontend**: Next.js (React), TypeScript, Tailwind CSS, Mapbox/DeckGL
-- **Backend**: Python, FastAPI, SQLAlchemy, GeoPandas, Rasterio
-- **Database**: PostgreSQL with PostGIS
-- **Cache/Queue**: Redis + Celery
-- **Object Storage**: MinIO (S3-compatible)
-- **Authentication**: Keycloak
-- **Simulation Engines**: DualSPHysics, Delft3D D-Flow FM
+## Tech stack
+- Frontend: Next.js, TypeScript, Tailwind CSS
+- Backend: Python, FastAPI, SQLAlchemy
+- Database: PostgreSQL with PostGIS
+- Queuing: Redis + Celery
+- Storage: MinIO
+- Authentication: Keycloak
+- Simulation engines: DualSPHysics, Delft3D
 
-## Quick Start
-1. Copy environment variables: `cp .env.example .env`
-2. Start the stack: `docker-compose up -d`
-3. The frontend is available at `http://localhost:3000`
-4. Backend API docs at `http://localhost:8000/docs`
+## Quick start
+1. Copy the environment file if present for your setup.
+2. Start the stack:
+   ```bash
+   docker-compose up -d
+   ```
+3. Open the app in the browser:
+   - Frontend: http://localhost:3000
+   - API docs: http://localhost:8000/docs
 
-## API Documentation
-See [docs/API.md](docs/API.md) for details.
-
-## Screenshots
-*(Add screenshots here)*
-
-## Team
-*(Add team info here)*
+## Documentation
+- [docs/API.md](docs/API.md)
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+- [docs/SIMULATION_ENGINES.md](docs/SIMULATION_ENGINES.md)
 
 ## License
-MIT License
+MIT

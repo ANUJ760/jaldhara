@@ -1,8 +1,18 @@
 
-export const getMockFloodExtent = (timeStep: number) => {
+export const getMockFloodExtent = (timeStep: number): {
+  type: 'FeatureCollection';
+  features: Array<{
+    type: 'Feature';
+    properties: { depth: number };
+    geometry: {
+      type: 'Polygon';
+      coordinates: number[][][];
+    };
+  }>;
+} => {
   // Returns a GeoJSON polygon that grows slightly with timeStep
   const baseRadius = 0.05 + (timeStep * 0.002);
-  const center = [86.9225, 26.5194];
+  const center: [number, number] = [86.9225, 26.5194];
   return {
     type: 'FeatureCollection',
     features: [{

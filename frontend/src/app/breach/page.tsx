@@ -15,12 +15,12 @@ export default function BreachPage() {
           
           <div>
             <label className="text-sm text-slate-400">Select Dam/Barrage</label>
-            <Select><option>Kosi Barrage</option><option>Tehri Dam</option></select>
+            <Select><option>Kosi Barrage</option><option>Tehri Dam</option></Select>
           </div>
           
           <div>
             <label className="text-sm text-slate-400">Failure Mode</label>
-            <Select><option>Overtopping</option><option>Piping</option><option>Instant Collapse</option></select>
+            <Select><option>Overtopping</option><option>Piping</option><option>Instant Collapse</option></Select>
           </div>
         </Card>
         
